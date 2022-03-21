@@ -1,0 +1,24 @@
+{
+    "name": "TeckArtist.Overlays.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Animation.Rigging"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.animation.rigging",
+            "expression": "0.0.0",
+            "define": "OVERLAYS_ANIMATION_RIGGING"
+        }
+    ],
+    "noEngineReferences": false
+}

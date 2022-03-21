@@ -1,0 +1,8 @@
+{
+  "name": "com.teckartist.overlays",
+  "displayName": "Overlays",
+  "version": "0.1.0",
+  "unity": "2021.2",
+  "description": "Collection of useful overlays\n\n\u25aa Scene view visualisers\n    \u25aa Configurable Grid/Checker\n    \u25aa Mip visualiser\n    \u25aa Overdraw visualiser [simplistic]\n\u25aa Rig control overlay [Requires Animation Rigging package]\n\u25aa Inspector overlay",
+  "type": "tool"
+}
