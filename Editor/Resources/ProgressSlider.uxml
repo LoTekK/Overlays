@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:ProgressBar />
+    <ui:Label display-tooltip-when-elided="true" name="Label" style="position: absolute; top: 4px; padding-left: 8px; -unity-font-style: bold; width: 100%;" />
+    <ui:Slider picking-mode="Ignore" value="42" high-value="100" style="position: absolute; top: 1px; opacity: 0;" />
+</ui:UXML>

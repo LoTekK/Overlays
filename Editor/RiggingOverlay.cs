@@ -21,7 +21,7 @@ namespace TeckArtist.Overlays.Editor
 
         public override VisualElement CreatePanelContent()
         {
-            ProgressSlider = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/ProgressSlider.uxml");
+            ProgressSlider = Resources.Load<VisualTreeAsset>("ProgressSlider");
             Selection.selectionChanged += UpdateSelection;
             EditorApplication.playModeStateChanged += state => EditorApplication.delayCall += UpdateSelection;
             UpdateSelection();
@@ -46,6 +46,8 @@ namespace TeckArtist.Overlays.Editor
                 var rigs = rigBuilder.layers.Where(l => l.active).Select(l => l.rig);
                 foreach (var rig in rigs)
                 {
+                    var foldout = new Foldout();
+                    foldout.text = rig.name;
                     // m_Panel.Add(new Label(rig.name));
                     {
                         var pbs = ProgressSlider.CloneTree();
@@ -70,7 +72,8 @@ namespace TeckArtist.Overlays.Editor
                                 Selection.objects = new Object[] { rig.gameObject };
                             }
                         });
-                        scrollview.Add(pbs);
+                        foldout.Add(pbs);
+                        // scrollview.Add(pbs);
                     }
                     var dict = new Dictionary<GameObject, List<IRigConstraint>>();
                     var constraints = rig.GetComponentsInChildren<IRigConstraint>();
@@ -86,7 +89,8 @@ namespace TeckArtist.Overlays.Editor
                     {
                         var label = new Label($"- {kvp.Key.name}");
                         label.style.marginLeft = 4;
-                        scrollview.Add(label);
+                        // scrollview.Add(label);
+                        foldout.Add(label);
                         foreach (var constraint in kvp.Value)
                         {
                             var cType = Regex.Replace(constraint.component.GetType().ToString(), ".*\\.", "");
@@ -110,9 +114,11 @@ namespace TeckArtist.Overlays.Editor
                                     Selection.objects = new Object[] { constraint.component.gameObject };
                                 }
                             });
-                            scrollview.Add(pbs);
+                            foldout.Add(pbs);
+                            // scrollview.Add(pbs);
                         }
                     }
+                    scrollview.Add(foldout);
                 }
                 m_Panel.Add(scrollview);
             }
